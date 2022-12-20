@@ -8,10 +8,15 @@ import java.util.List;
 public class Gui extends JFrame {
 
     private GameController controller;
+    private Timer timer;
+    private int timerSecond;
+    JLabel counterLabel = new JLabel(String.valueOf(timerSecond));
     JPanel groundPanel = new JPanel(new BorderLayout());
+    JPanel roofPanel = new JPanel(new BorderLayout());
     JPanel gamePanel = new JPanel(new GridLayout(3, 3));
     JPanel bottomPanel = new JPanel(new GridLayout(1, 3));
     JPanel topPanel = new JPanel(new GridLayout(1, 3));
+    JPanel timerPanel = new JPanel(new GridLayout(1,1));
     JLabel gameInfo = new JLabel("<----- Turn");
     JLabel playerXname = new JLabel();
     JLabel playerOname = new JLabel();
@@ -30,6 +35,7 @@ public class Gui extends JFrame {
     List<JButton> listOfButton = List.of(button1, button2, button3, button4, button5, button6, button7, button8, button9);
     Font fontInfo = new Font("Tahoma", Font.BOLD, 20);
     Font fontButton = new Font("Tahoma", Font.BOLD, 70);
+    Font fontTimer = new Font("Tahoma", Font.BOLD, 100);
 
     Gui(GameController controller) {
         this.controller = controller;
@@ -39,7 +45,9 @@ public class Gui extends JFrame {
         gameInfo.setFont(fontInfo);
         playerOname.setFont(fontInfo);
         playerXname.setFont(fontInfo);
+        timerPanel.setFont(fontTimer);
         playerOname.setHorizontalAlignment(JLabel.RIGHT);
+        counterLabel.setHorizontalAlignment(JLabel.CENTER);
 
         for (JButton jp : listOfButton) {
             jp.setFont(fontButton);
@@ -49,12 +57,15 @@ public class Gui extends JFrame {
         topPanel.add(playerXname);
         topPanel.add(gameInfo);
         topPanel.add(playerOname);
+        timerPanel.add(counterLabel);
 
         bottomPanel.add(newGameButton);
         bottomPanel.add(giveUpButton);
         bottomPanel.add(randomButton);
+        roofPanel.add(topPanel, BorderLayout.NORTH);
+        roofPanel.add(timerPanel, BorderLayout.SOUTH);
         groundPanel.add(gamePanel, BorderLayout.CENTER);
-        groundPanel.add(topPanel, BorderLayout.NORTH);
+        groundPanel.add(roofPanel, BorderLayout.NORTH);
         groundPanel.add(bottomPanel, BorderLayout.SOUTH);
         add(groundPanel);
 
@@ -63,54 +74,63 @@ public class Gui extends JFrame {
             updateBoard();
             checkWinner();
             button1.setEnabled(false);
+            resetTimer();
         });
         button2.addActionListener(e -> {
             controller.placeMark(0, 1);
             updateBoard();
             checkWinner();
             button2.setEnabled(false);
+            resetTimer();
         });
         button3.addActionListener(e -> {
             controller.placeMark(0, 2);
             updateBoard();
             checkWinner();
             button3.setEnabled(false);
+            resetTimer();
         });
         button4.addActionListener(e -> {
             controller.placeMark(1, 0);
             updateBoard();
             checkWinner();
             button4.setEnabled(false);
+            resetTimer();
         });
         button5.addActionListener(e -> {
             controller.placeMark(1, 1);
             updateBoard();
             checkWinner();
             button5.setEnabled(false);
+            resetTimer();
         });
         button6.addActionListener(e -> {
             controller.placeMark(1, 2);
             updateBoard();
             checkWinner();
             button6.setEnabled(false);
+            resetTimer();
         });
         button7.addActionListener(e -> {
             controller.placeMark(2, 0);
             updateBoard();
             checkWinner();
             button7.setEnabled(false);
+            resetTimer();
         });
         button8.addActionListener(e -> {
             controller.placeMark(2, 1);
             updateBoard();
             checkWinner();
             button8.setEnabled(false);
+            resetTimer();
         });
         button9.addActionListener(e -> {
             controller.placeMark(2, 2);
             updateBoard();
             checkWinner();
             button9.setEnabled(false);
+            resetTimer();
         });
 
         newGameButton.addActionListener(e -> {
@@ -129,12 +149,15 @@ public class Gui extends JFrame {
                 gameInfo.setText("<----- Turn");
                 controller.currentPlayer = controller.playerX;
             }
-
+            resetTimer();
         });
 
         giveUpButton.addActionListener(e -> {
             String whoGiveUp = controller.giveUp();
             giveUpButton.setEnabled(false);
+            disableButtons();
+            randomButton.setEnabled(false);
+            timer.stop();
             if (whoGiveUp.equals("X")) {
                 gameInfo.setText("WINNER! ----->");
             } else {
@@ -149,8 +172,13 @@ public class Gui extends JFrame {
                 updateBoard();
                 checkWinner();
                 checkButtons();
+                resetTimer();
             }
         });
+
+        timerSecond = 5;
+        gameTimer();
+        timer.start();
 
         setLocationRelativeTo(null);
         setTitle("Tic Tac Toe");
@@ -158,6 +186,29 @@ public class Gui extends JFrame {
         setSize(500, 500);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    private void gameTimer() {
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timerSecond--;
+                counterLabel.setText(String.valueOf(timerSecond));
+                if(timerSecond == 0){
+                    timer.stop();
+                    controller.randomMark();
+                    updateBoard();
+                    checkButtons();
+                    checkWinner();
+                    resetTimer();
+                }
+            }
+        });
+    }
+
+    private void resetTimer(){
+        timerSecond = 5;
+        timer.start();
     }
 
     private void updateBoard() {
@@ -174,6 +225,7 @@ public class Gui extends JFrame {
     private void checkWinner() {
         String win = controller.checkWin();
         if (win.equals("X Won!")) {
+            timer.stop();
             gameInfo.setText("<----- WINNER!");
             controller.currentPlayer = controller.playerX;
             colorWinningRow();
@@ -181,6 +233,7 @@ public class Gui extends JFrame {
             disableButtons();
             randomButton.setEnabled(false);
         } else if (win.equals("O Won!")) {
+            timer.stop();
             gameInfo.setText("WINNER! ----->");
             controller.currentPlayer = controller.playerO;
             colorWinningRow();
@@ -188,6 +241,7 @@ public class Gui extends JFrame {
             disableButtons();
             randomButton.setEnabled(false);
         } else if (win.equals("Draw!")) {
+            timer.stop();
             gameInfo.setText("DRAW!");
             giveUpButton.setEnabled(false);
             disableButtons();
