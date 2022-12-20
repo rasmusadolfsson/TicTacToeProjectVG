@@ -55,4 +55,11 @@ public class GameController {
             return "O";
         }
     }
+
+    public void randomMark(){
+        gameBoard = gameRules.placeRandom(gameBoard, currentPlayer);
+        if (currentPlayer == playerX){
+            currentPlayer = playerO;
+        } else currentPlayer = playerX;
+    }
 }

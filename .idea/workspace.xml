@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="373b4801-99b9-4c79-9707-542d775540bc" name="Changes" comment="Bug fix">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-12-13_14_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-12-13_14_59__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TicTacToeProject/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToeProject/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TicTacToeProject/GameRules.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToeProject/GameRules.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TicTacToeProject/Gui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToeProject/Gui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameRules.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gui.java" afterDir="false" />
     </list>
     <list id="447223c8-82b2-4535-b036-833da5e594b9" name="Changes by Rasmus" comment="Changes by Rasmus" />
@@ -29,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Start_controller_from_main" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,31 +66,17 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.TicTacToe">
-    <configuration name="Gui" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Gui" />
-      <module name="TicTacToeProject" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="TicTacToe" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-19" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="TicTacToe" />
       <module name="TicTacToeProject" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.Gui" />
-      <item itemvalue="Application.TicTacToe" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TicTacToe" />
-        <item itemvalue="Application.Gui" />
         <item itemvalue="Application.TicTacToe" />
         <item itemvalue="Application.Gui" />
         <item itemvalue="Application.TicTacToe" />
@@ -107,6 +98,9 @@
       <workItem from="1671177340948" duration="3029000" />
       <workItem from="1671391686832" duration="21000" />
       <workItem from="1671439833342" duration="1453000" />
+      <workItem from="1671457901406" duration="197000" />
+      <workItem from="1671526733810" duration="1431000" />
+      <workItem from="1671528183629" duration="365000" />
     </task>
     <task id="LOCAL−00001" summary="Initial">
       <created>1670920584460</created>

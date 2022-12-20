@@ -10,13 +10,14 @@ public class Gui extends JFrame {
     private GameController controller;
     JPanel groundPanel = new JPanel(new BorderLayout());
     JPanel gamePanel = new JPanel(new GridLayout(3, 3));
-    JPanel bottomPanel = new JPanel(new GridLayout(1, 2));
+    JPanel bottomPanel = new JPanel(new GridLayout(1, 3));
     JPanel topPanel = new JPanel(new GridLayout(1, 3));
     JLabel gameInfo = new JLabel("<----- Turn");
     JLabel playerXname = new JLabel();
     JLabel playerOname = new JLabel();
     JButton newGameButton = new JButton("New game");
     JButton giveUpButton = new JButton("Give up!");
+    JButton randomButton = new JButton("Randomize");
     JButton button1 = new JButton();
     JButton button2 = new JButton();
     JButton button3 = new JButton();
@@ -51,6 +52,7 @@ public class Gui extends JFrame {
 
         bottomPanel.add(newGameButton);
         bottomPanel.add(giveUpButton);
+        bottomPanel.add(randomButton);
         groundPanel.add(gamePanel, BorderLayout.CENTER);
         groundPanel.add(topPanel, BorderLayout.NORTH);
         groundPanel.add(bottomPanel, BorderLayout.SOUTH);
@@ -112,6 +114,7 @@ public class Gui extends JFrame {
         });
 
         newGameButton.addActionListener(e -> {
+            randomButton.setEnabled(true);
             for (JButton jb : listOfButton) {
                 jb.setText("");
                 jb.setBackground(null);
@@ -136,6 +139,16 @@ public class Gui extends JFrame {
                 gameInfo.setText("WINNER! ----->");
             } else {
                 gameInfo.setText("<----- WINNER!");
+            }
+        });
+
+        randomButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.randomMark();
+                updateBoard();
+                checkWinner();
+                checkButtons();
             }
         });
 
@@ -166,16 +179,19 @@ public class Gui extends JFrame {
             colorWinningRow();
             giveUpButton.setEnabled(false);
             disableButtons();
+            randomButton.setEnabled(false);
         } else if (win.equals("O Won!")) {
             gameInfo.setText("WINNER! ----->");
             controller.currentPlayer = controller.playerO;
             colorWinningRow();
             giveUpButton.setEnabled(false);
             disableButtons();
+            randomButton.setEnabled(false);
         } else if (win.equals("Draw!")) {
             gameInfo.setText("DRAW!");
             giveUpButton.setEnabled(false);
             disableButtons();
+            randomButton.setEnabled(false);
         } else {
             if (gameInfo.getText().equals("<----- Turn")) {
                 gameInfo.setText("Turn ----->");
@@ -222,6 +238,14 @@ public class Gui extends JFrame {
     private void disableButtons() {
         for (JButton button : listOfButton) {
             button.setEnabled(false);
+        }
+    }
+
+    private void checkButtons(){
+        for(JButton button: listOfButton){
+            if(!button.getText().equals("")){
+                button.setEnabled(false);
+            }
         }
     }
 

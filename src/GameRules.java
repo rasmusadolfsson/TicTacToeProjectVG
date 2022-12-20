@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class GameRules {
 
     public boolean isValidMove(int X, int Y, PlayerMarker[][] board) {
@@ -36,9 +38,23 @@ public class GameRules {
                 || (board[0][0] != null && board[0][0] == board[1][1] && board[0][0] == board[2][2])
                 || (board[0][2] != null && board[0][2] == board[1][1] && board[0][2] == board[2][0]);
     }
-}
 
-/* (0,0) (0,1) (0,2)
-   (1,0) (1,1) (1,2)
-   (2,0) (2,1) (2,2)
-*/
+    public PlayerMarker[][] placeRandom(PlayerMarker[][] gameBoard, Player currentPlayer) {
+        boolean done = false;
+        int r1;
+        int r2;
+        while(!done){
+            r1 = randomNum();
+            r2 = randomNum();
+            if(gameBoard[r1][r2] == null){
+                gameBoard[r1][r2] = currentPlayer.getPlayerMark();
+                done = true;
+            }
+        }
+        return gameBoard;
+    }
+    private int randomNum(){
+        Random random = new Random();
+        return random.nextInt(3);
+    }
+}
