@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="373b4801-99b9-4c79-9707-542d775540bc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-12-13_14_59_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-12-13_14_59__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TicTacToeProject/Gui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToeProject/Gui.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gui.java" afterDir="false" />
     </list>
     <list id="447223c8-82b2-4535-b036-833da5e594b9" name="Changes by Rasmus" comment="Changes by Rasmus" />
@@ -94,7 +97,8 @@
       <workItem from="1671457901406" duration="197000" />
       <workItem from="1671526733810" duration="1431000" />
       <workItem from="1671528183629" duration="847000" />
-      <workItem from="1671529044804" duration="3002000" />
+      <workItem from="1671529044804" duration="3840000" />
+      <workItem from="1671626907974" duration="346000" />
     </task>
     <task id="LOCAL−00001" summary="Initial">
       <created>1670920584460</created>
@@ -187,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671528682743</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added timer function">
+      <created>1671532313945</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1671532313945</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +229,7 @@
     <MESSAGE value="Update game" />
     <MESSAGE value="Bug fix" />
     <MESSAGE value="added function to randomly place mark" />
-    <option name="LAST_COMMIT_MESSAGE" value="added function to randomly place mark" />
+    <MESSAGE value="added timer function" />
+    <option name="LAST_COMMIT_MESSAGE" value="added timer function" />
   </component>
 </project>

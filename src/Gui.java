@@ -72,65 +72,65 @@ public class Gui extends JFrame {
         button1.addActionListener(e -> {
             controller.placeMark(0, 0);
             updateBoard();
+            resetTimer();
             checkWinner();
             button1.setEnabled(false);
-            resetTimer();
         });
         button2.addActionListener(e -> {
             controller.placeMark(0, 1);
             updateBoard();
+            resetTimer();
             checkWinner();
             button2.setEnabled(false);
-            resetTimer();
         });
         button3.addActionListener(e -> {
             controller.placeMark(0, 2);
             updateBoard();
+            resetTimer();
             checkWinner();
             button3.setEnabled(false);
-            resetTimer();
         });
         button4.addActionListener(e -> {
             controller.placeMark(1, 0);
             updateBoard();
+            resetTimer();
             checkWinner();
             button4.setEnabled(false);
-            resetTimer();
         });
         button5.addActionListener(e -> {
             controller.placeMark(1, 1);
             updateBoard();
+            resetTimer();
             checkWinner();
             button5.setEnabled(false);
-            resetTimer();
         });
         button6.addActionListener(e -> {
             controller.placeMark(1, 2);
             updateBoard();
+            resetTimer();
             checkWinner();
             button6.setEnabled(false);
-            resetTimer();
         });
         button7.addActionListener(e -> {
             controller.placeMark(2, 0);
             updateBoard();
+            resetTimer();
             checkWinner();
             button7.setEnabled(false);
-            resetTimer();
         });
         button8.addActionListener(e -> {
             controller.placeMark(2, 1);
             updateBoard();
+            resetTimer();
             checkWinner();
             button8.setEnabled(false);
-            resetTimer();
         });
         button9.addActionListener(e -> {
             controller.placeMark(2, 2);
             updateBoard();
+            resetTimer();
             checkWinner();
             button9.setEnabled(false);
-            resetTimer();
         });
 
         newGameButton.addActionListener(e -> {
@@ -170,9 +170,9 @@ public class Gui extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 controller.randomMark();
                 updateBoard();
+                resetTimer();
                 checkWinner();
                 checkButtons();
-                resetTimer();
             }
         });
 
